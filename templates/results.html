@@ -29,7 +29,7 @@
             <div class="table-responsive">
                 <table class="table">
                     <tr>
-                        <th colspan="2" style="text-align:center;font-size:125%;font-weight:bold;font-size:110%;">Game</th>
+                        <th style="text-align:center;font-size:125%;font-weight:bold;font-size:110%;">Game</th>
                         <th style="text-align:center;font-size:125%;font-weight:bold;font-size:110%;">Rating</th>
                         <th style="text-align:center;font-size:125%;font-weight:bold;font-size:110%;">Average Length</th>
                         <th style="text-align:center;font-size:125%;font-weight:bold;font-size:110%;">Release Date</th>
@@ -38,22 +38,35 @@
                     </tr>
                     {% for game in game_data %}
                     <tr>
-                        <td>
-                            <img src="{{game['img']}}" alt="game-img" height="200px">
+                        <td class="align-middle">
+                            <div class="align-middle text-center fw-bold">
+                                {{game["name"]}}
+                            </div>
+                            <div class="align-middle text-center">
+                                <img src="{{game['img']}}" alt="game-img" class="img-fluid" width="250px">
+                            </div>
                         </td>
-                        <td>
-                            {{game["name"]}}
+                        <td class="align-middle">
+                            <div class="fw-bold text-center">
+                                Critic:
+                            </div>
+                            <div class="text-center">
+                                {{game["critic"]}}
+                            </div>
+                            <div class="fw-bold text-center">
+                                User:
+                            </div>
+                            <div class="text-center">
+                                {{game["user"]}}
+                            </div>
                         </td>
-                        <td>
-                            N/A
-                        </td>
-                        <td>
+                        <td class="align-middle text-center">
                             {{game["length"]}}
                         </td>
-                        <td>
+                        <td class="align-middle text-center">
                             {{game["release"]}}
                         </td>
-                        <td>
+                        <td class="align-middle text-center">
                             <ul class="list-unstyled">
                                 {% for platform in game["platforms"] %}
                                 <li>
@@ -62,7 +75,7 @@
                                 {% endfor %}
                             </ul>
                         </td>
-                        <td>
+                        <td class="align-middle text-center">
                             <ul class="list-unstyled">
                                 {% for genre in game["genre"] %}
                                 <li>

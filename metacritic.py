@@ -15,7 +15,7 @@ def metascore(name):
     nameURL = name.replace(" ", "%20")
 
     # Makes new url for the search results
-    searchURL = baseURL + "/search/all/" + name.lower() + "/results"
+    searchURL = baseURL + "/search/all/" + name + "/results"
 
     # Load the webpage content
     r = requests.get(searchURL, headers=headers)
@@ -23,23 +23,22 @@ def metascore(name):
     # Convert to a beautiful soup object
     soup = bs(r.content, "html5lib")
 
-    # Gets the url for the game from the search results
-    gameURL = baseURL + soup.find(
-                                  "li", {"class": "first_result"}
-                                  ).find("a")["href"]
-
-    # Load new page for the specific game
-    r = requests.get(gameURL, headers=headers)
-    soup = bs(r.content, "html5lib")
-
-    # Sets up dictionary of scores
-    scores = {"critic": "N/A", "user": "N/A"}
     # Using try to prevent errors if the page or game is not found
     try:
-        scores["critic"] = soup.find(class_="metascore_w").text
-        scores["user"] = soup.find(class_="user").text
+        # Gets the url for the game from the search results
+        gameURL = baseURL + soup.find(
+                                    "li", class_="first_result"
+                                    ).find("a")["href"]
+
+        # Load new page for the specific game
+        r = requests.get(gameURL, headers=headers)
+        soup = bs(r.content, "html5lib")
+        # Get the scores
+        critic = soup.find(class_="xlarge").text
+        user = soup.find(class_="user").text
     except Exception:
-        scores = {"critic": "N/A", "user": "N/A"}
+        critic = "N/A"
+        user = "N/A"
 
     # Returns scores
-    return(scores)
+    return(critic, user)

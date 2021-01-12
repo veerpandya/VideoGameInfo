@@ -54,6 +54,8 @@ def wiki_info(name):
 def get_text(elements):
     text_list = []
     for element in elements:
-        text_list.append(element.text)
+        text = element.text
+        if text[0] != "[":
+            text_list.append(text)
 
     return text_list

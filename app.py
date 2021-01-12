@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template
 from hltb import hltb_info
-import metacritic
+from metacritic import metascore
 from wiki import wiki_info
 from google import get_release
 import requests
@@ -26,6 +26,7 @@ def search():
     for game in game_data:
         game["platforms"], game["genre"] = wiki_info(game["name"])
         game["release"] = get_release(game["name"])
+        game["critic"], game["user"] = metascore(game["name"])
 
     context = {
         "game_data": game_data
