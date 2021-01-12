@@ -36,7 +36,9 @@ def hltb_info(name):
                         "url": e.get_attribute("href"),
                         "release": "N/A",
                         "critic": "N/A",
+                        "ccolor": "none",
                         "user": "N/A",
+                        "ucolor": "none",
                         "platforms": ["N/A"],
                         "genre": ["N/A"],
                         "img": "N/A"

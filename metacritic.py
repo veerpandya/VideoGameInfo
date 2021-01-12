@@ -35,10 +35,24 @@ def metascore(name):
         soup = bs(r.content, "html5lib")
         # Get the scores
         critic = soup.find(class_="xlarge").text
+        if float(critic) < 5:
+            ccolor = "bad"
+        elif float(critic) < 8:
+            ccolor = "mix"
+        else:
+            ccolor = "good"
         user = soup.find(class_="user").text
+        if float(user) < 5:
+            ucolor = "bad"
+        elif float(user) < 8:
+            ucolor = "mix"
+        else:
+            ucolor = "good"
     except Exception:
         critic = "N/A"
+        ccolor = "none"
+        ucolor = "none"
         user = "N/A"
 
     # Returns scores
-    return(critic, user)
+    return(critic, ccolor, user, ucolor)

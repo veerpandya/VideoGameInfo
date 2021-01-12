@@ -28,19 +28,25 @@ def wiki_info(name):
 
     # If wiki page doesn't exist, skip
     if infobox is not None:
-        # Gets game's platform data from the box
-        platform_data = infobox.find("th", text="Platform(s)").parent
+        # Using try to avoid errors
+        try:
+            # Gets game's platform data from the box
+            platform_data = infobox.find("th", text="Platform(s)").parent
 
-        # Gets platform info
-        platform_info = platform_data.select("td a")
+            # Gets platform info
+            platform_info = platform_data.select("td a")
 
-        # Converts platform info into text
-        platforms = get_text(platform_info)
+            # Converts platform info into text
+            platforms = get_text(platform_info)
 
-        # Same steps for genre info
-        genre_data = infobox.find("th", text="Genre(s)").parent
-        genre_info = genre_data.select("td a")
-        genre = get_text(genre_info)
+            # Same steps for genre info
+            genre_data = infobox.find("th", text="Genre(s)").parent
+            genre_info = genre_data.select("td a")
+            genre = get_text(genre_info)
+
+        except Exception:
+            platforms = ["N/A"]
+            genre = ["N/A"]
 
     else:
         platforms = ["N/A"]

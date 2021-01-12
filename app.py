@@ -26,10 +26,16 @@ def search():
     for game in game_data:
         game["platforms"], game["genre"] = wiki_info(game["name"])
         game["release"] = get_release(game["name"])
-        game["critic"], game["user"] = metascore(game["name"])
+        (
+            game["critic"],
+            game["ccolor"],
+            game["user"],
+            game["ucolor"]
+            ) = metascore(game["name"])
 
     context = {
-        "game_data": game_data
+        "game_data": game_data,
+        "query": query
     }
 
     return render_template('results.html', **context)
