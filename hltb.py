@@ -13,7 +13,7 @@ def hltb_info(name):
     options.add_argument("headless")
 
     # Initializes Chrome Driver
-    driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+    driver = webdriver.Chrome(options=options)
 
     # Sets base url for HowLongToBeat
     hltb = "https://howlongtobeat.com/#search"
