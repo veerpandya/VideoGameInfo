@@ -24,6 +24,10 @@ def get_release(name):
     soup = bs(r.content, "html5lib")
 
     # Find release date
-    release_date = soup.find(class_="Z0LcW XcVN5d").text
+    # Using try to cover cases where it's not found
+    try:
+        release_date = soup.find(class_="Z0LcW XcVN5d").text
+    except Exception:
+        release_date = "N/A"
 
     return(release_date)

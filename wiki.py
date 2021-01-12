@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup as bs
 
 
 # Get game info from wikipedia.com
-def wikiInfo(name):
+def wiki_info(name):
     # Replaces spaces with _ to be used in the url
     name = name.replace(" ", "_")
 
@@ -26,22 +26,28 @@ def wikiInfo(name):
     # Gets the infobox from the page
     infobox = soup.find("table", class_="infobox")
 
-    # Gets game's platform data from the box
-    platform_data = infobox.find("th", text="Platform(s)").parent
+    # If wiki page doesn't exist, skip
+    if infobox is not None:
+        # Gets game's platform data from the box
+        platform_data = infobox.find("th", text="Platform(s)").parent
 
-    # Gets platform info
-    platform_info = platform_data.select("td div ul li")
+        # Gets platform info
+        platform_info = platform_data.select("td a")
 
-    # Converts platform info into text
-    platforms = get_text(platform_info)
+        # Converts platform info into text
+        platforms = get_text(platform_info)
 
-    # Same steps for genre info
-    genre_data = infobox.find("th", text="Genre(s)").parent
-    genre_info = genre_data.select("td a")
-    genres = get_text(genre_info)
+        # Same steps for genre info
+        genre_data = infobox.find("th", text="Genre(s)").parent
+        genre_info = genre_data.select("td a")
+        genre = get_text(genre_info)
+
+    else:
+        platforms = ["N/A"]
+        genre = ["N/A"]
 
     # Returns info
-    return(platforms, genres)
+    return(platforms, genre)
 
 
 # Converts list of elements into list of text

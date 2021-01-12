@@ -28,10 +28,48 @@
         <div class="container result-body" style="margin-top: 5em">
             <div class="table-responsive">
                 <table class="table">
-                    {% for game in games %}
+                    <tr>
+                        <th colspan="2" style="text-align:center;font-size:125%;font-weight:bold;font-size:110%;">Game</th>
+                        <th style="text-align:center;font-size:125%;font-weight:bold;font-size:110%;">Rating</th>
+                        <th style="text-align:center;font-size:125%;font-weight:bold;font-size:110%;">Average Length</th>
+                        <th style="text-align:center;font-size:125%;font-weight:bold;font-size:110%;">Release Date</th>
+                        <th style="text-align:center;font-size:125%;font-weight:bold;font-size:110%;">Platforms</th>
+                        <th style="text-align:center;font-size:125%;font-weight:bold;font-size:110%;">Genre</th>
+                    </tr>
+                    {% for game in game_data %}
                     <tr>
                         <td>
-                            {{game}}
+                            <img src="{{game['img']}}" alt="game-img" height="200px">
+                        </td>
+                        <td>
+                            {{game["name"]}}
+                        </td>
+                        <td>
+                            N/A
+                        </td>
+                        <td>
+                            {{game["length"]}}
+                        </td>
+                        <td>
+                            {{game["release"]}}
+                        </td>
+                        <td>
+                            <ul class="list-unstyled">
+                                {% for platform in game["platforms"] %}
+                                <li>
+                                    {{platform}}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="list-unstyled">
+                                {% for genre in game["genre"] %}
+                                <li>
+                                    {{genre.capitalize()}}
+                                </li>
+                                {% endfor %}
+                            </ul>
                         </td>
                     </tr>
                     {% endfor %}

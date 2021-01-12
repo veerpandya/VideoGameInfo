@@ -3,11 +3,7 @@ from bs4 import BeautifulSoup as bs
 
 
 # Gets game rating score from metacritic.com
-def metascore(name, platform):
-
-    # Replaces spaces with - to be used in the url
-    name = name.replace(" ", "-")
-    platform = platform.replace(" ", "-")
+def metascore(name):
 
     # User Agent needed to access the site
     headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"
