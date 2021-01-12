@@ -10,15 +10,26 @@ def metascore(name):
                " AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88"
                " Safari/537.36"}
 
-    baseURL = "https://www.metacritic.com/game/"
+    baseURL = "https://www.metacritic.com"
 
-    # Makes new url for the game
-    gameURL = baseURL + platform.lower() + "/" + name.lower()
+    nameURL = name.replace(" ", "%20")
+
+    # Makes new url for the search results
+    searchURL = baseURL + "/search/all/" + name.lower() + "/results"
 
     # Load the webpage content
-    r = requests.get(gameURL, headers=headers)
+    r = requests.get(searchURL, headers=headers)
 
     # Convert to a beautiful soup object
+    soup = bs(r.content, "html5lib")
+
+    # Gets the url for the game from the search results
+    gameURL = baseURL + soup.find(
+                                  "li", {"class": "first_result"}
+                                  ).find("a")["href"]
+
+    # Load new page for the specific game
+    r = requests.get(gameURL, headers=headers)
     soup = bs(r.content, "html5lib")
 
     # Sets up dictionary of scores
