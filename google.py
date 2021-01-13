@@ -21,7 +21,7 @@ def get_release(name):
     r = requests.get(gameURL, headers=headers)
 
     # Convert to a beautiful soup object
-    soup = bs(r.content, "html5lib")
+    soup = bs(r.content, "lxml")
 
     # Find release date
     # Using try to cover cases where it's not found

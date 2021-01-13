@@ -21,7 +21,7 @@ def wiki_info(name):
     r = requests.get(gameURL, headers=headers)
 
     # Convert to a beautiful soup object
-    soup = bs(r.content, "html5lib")
+    soup = bs(r.content, "lxml")
 
     # Gets the infobox from the page
     infobox = soup.find("table", class_="infobox")

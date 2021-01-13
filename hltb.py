@@ -65,7 +65,7 @@ def get_length(url):
     # Load the page
     r = requests.get(url, headers=headers)
     # Convert to a beautiful soup object
-    soup = bs(r.content, "html5lib")
+    soup = bs(r.content, "lxml")
 
     elements = soup.find_all(class_="short")
 

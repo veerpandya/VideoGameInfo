@@ -12,16 +12,19 @@ def metascore(name):
 
     baseURL = "https://www.metacritic.com"
 
+    # Gets rid of year from name to work with metacritic's search
+    name = name.split("(")[0]
+
     nameURL = name.replace(" ", "%20")
 
     # Makes new url for the search results
-    searchURL = baseURL + "/search/all/" + name + "/results"
+    searchURL = baseURL + "/search/game/" + name + "/results?sort=score"
 
     # Load the webpage content
     r = requests.get(searchURL, headers=headers)
 
     # Convert to a beautiful soup object
-    soup = bs(r.content, "html5lib")
+    soup = bs(r.content, "lxml")
 
     # Using try to prevent errors if the page or game is not found
     try:
@@ -32,7 +35,7 @@ def metascore(name):
 
         # Load new page for the specific game
         r = requests.get(gameURL, headers=headers)
-        soup = bs(r.content, "html5lib")
+        soup = bs(r.content, "lxml")
         # Get the scores
         critic = soup.find(class_="xlarge").text
         if float(critic) < 5:
