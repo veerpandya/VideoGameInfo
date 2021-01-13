@@ -11,16 +11,9 @@ def hltb_info(name):
     # Prevents chrome window from displaying
     options = Options()
     options.add_argument("headless")
-    options.add_argument("disable-gpu")
-    options.add_argument("no-sandbox")
-
-    # Setting variables for heroku deployment
-    GOOGLE_CHROME_BIN = "/app/.apt/usr/bin/google-chrome"
-    CHROMEDRIVER = "/app/.chromedriver/bin/chromedriver"
-    options.binary_location = GOOGLE_CHROME_BIN
 
     # Initializes Chrome Driver
-    driver = webdriver.Chrome(executable_path=CHROMEDRIVER, options=options)
+    driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
     # Sets base url for HowLongToBeat
     hltb = "https://howlongtobeat.com/#search"
