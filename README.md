@@ -9,7 +9,7 @@ This is an app used to quickly find general information about video games by sea
 This app is deployed here:
 https://videogameinfo.herokuapp.com/
 
-However, the deployment does not work. I think this is due to one of my webscrapers which uses selenium to automate typing into a website. The app works well on a local build, but I will need to figure out how to get it to work on heroku in the future.
+The heroku deployment now works to an extent.  Heroku has a request timeout limit of 30s, so you need to make your searches more specific to prevent the server from throwing a timeout error.  I'll work on speeding up the request time.
 
 ### Local Deployment
 
