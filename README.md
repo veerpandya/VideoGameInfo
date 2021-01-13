@@ -9,7 +9,7 @@ This is an app used to quickly find general information about video games by sea
 This app is deployed here:
 https://videogameinfo.herokuapp.com/
 
-The heroku deployment now works to an extent.  Heroku has a request timeout limit of 30s, so you need to make your searches more specific to prevent the server from throwing a timeout error.  I'll work on speeding up the request time.
+The heroku deployment works now that I've added multiprocessing and set a limit of 10 games for a search.
 
 ### Local Deployment
 
