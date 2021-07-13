@@ -79,9 +79,10 @@ def get_length(url):
                 length = e.find("div").text
 
     # Also get game artwork
+    base = "https://howlongtobeat.com"
     # Using try to prevent errors if the image does not exist
     try:
-        img = soup.find(class_="game_image").img["src"]
+        img = base + soup.find(class_="game_image").img["src"]
     except Exception:
         img = ""
 
