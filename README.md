@@ -2,14 +2,16 @@
 
 ![VideoGameInfo](https://github.com/Kou-kun42/VideoGameInfo/blob/main/videogameinfo.png?raw=true)
 
+![Website](https://img.shields.io/website?up_message=running&url=http%3A%2F%2Fvideogameinfo.dev.vpandya.xyz%2F)
+
 ### Overview
 
 This is an app used to quickly find general information about video games by searching using a name. The app uses the queried keyword(s) and then scrapes game information from popular sites like [Metacritic](https://www.metacritic.com/), [HowLongToBeat](https://howlongtobeat.com/), [Wikipedia](https://en.wikipedia.org/wiki/Main_Page), and [Google](https://www.google.com/). The information is then organized and listed in an easy to read format.
 
-### Heroku Deployment
+### Deployment
 
 This app is deployed here:
-https://videogameinfo.herokuapp.com/
+http://videogameinfo.dev.vpandya.xyz/
 
 The heroku deployment works now that I've added multiprocessing and set a limit of 10 games for a search.
 
