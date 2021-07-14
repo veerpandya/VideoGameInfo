@@ -1,6 +1,6 @@
 # VideoGameInfo
 
-![Website](https://img.shields.io/website?up_message=running&url=http%3A%2F%2Fvideogameinfo.dev.vpandya.xyz%2F)
+![Website](https://img.shields.io/website?up_message=running&url=https%3A%2F%2Fvideogameinfo.dev.vpandya.xyz%2F)
 
 ![VideoGameInfo](https://github.com/Kou-kun42/VideoGameInfo/blob/main/videogameinfo.png?raw=true)
 
@@ -11,7 +11,7 @@ This is an app used to quickly find general information about video games by sea
 ### Deployment
 
 This app is deployed here:
-http://videogameinfo.dev.vpandya.xyz/
+https://videogameinfo.dev.vpandya.xyz/
 
 The heroku deployment works now that I've added multiprocessing and set a limit of 10 games for a search.
 
