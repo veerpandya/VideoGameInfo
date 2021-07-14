@@ -1,0 +1,11 @@
+# ------------------------------- .dockerignore ------------------------------ #
+# ---- https://docs.docker.com/engine/reference/builder/#dockerignore-file ---- #
+
+.DS_Store
+.git/
+.gitignore
+LICENSE
+*.md
+venv/
+env/
+.vscode

@@ -11,6 +11,9 @@ def hltb_info(name):
     # Prevents chrome window from displaying
     options = Options()
     options.add_argument("headless")
+    options.add_argument("--disable-extensions")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--no-sandbox")
 
     # Initializes Chrome Driver
     driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
@@ -46,6 +49,10 @@ def hltb_info(name):
 
     # Ends web driver
     driver.quit()
+
+    # Prevents more than 10 games from being loaded
+    # This avoids server timeouts on heroku and speeds things up
+    games = games[:10]
 
     # Gets length of each game
     for game in games:
