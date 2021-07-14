@@ -1,8 +1,8 @@
 # VideoGameInfo
 
-![VideoGameInfo](https://github.com/Kou-kun42/VideoGameInfo/blob/main/videogameinfo.png?raw=true)
+![Deployment](https://img.shields.io/website?up_message=running&url=http%3A%2F%2Fvideogameinfo.dev.vpandya.xyz%2F)
 
-![Website](https://img.shields.io/website?up_message=running&url=http%3A%2F%2Fvideogameinfo.dev.vpandya.xyz%2F)
+![VideoGameInfo](https://github.com/Kou-kun42/VideoGameInfo/blob/main/videogameinfo.png?raw=true)
 
 ### Overview
 
