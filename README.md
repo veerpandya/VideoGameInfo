@@ -46,3 +46,18 @@ Finally, launch the app:
 ```
 python3 app.py
 ```
+
+
+### Docker Build
+
+To build the docker image:
+
+```
+docker build -t videogameinfo-image .
+```
+
+Build and run the container
+
+```
+docker run -p 5000:5000 --rm --name videogameinfo-container videogameinfo-image
+```
