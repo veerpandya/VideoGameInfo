@@ -26,7 +26,7 @@ def get_release(name):
     # Find release date
     # Using try to cover cases where it's not found
     try:
-        release_date = soup.find(class_="Z0LcW XcVN5d").text
+        release_date = soup.find(class_="Z0LcW").text
     except Exception:
         release_date = "N/A"
 
